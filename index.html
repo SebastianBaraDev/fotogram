@@ -11,28 +11,26 @@
      <link rel="icon" type="image/png" href="./img/favicon.png">
 </head>
 <body>
-     <main>
-        <header>
+    <header>
+            <div class="content_wrapper">
             <img src="./img/header_logo.svg" alt="Fotogram Logo" id="header_logo">
+        </div class="content_wrapper">
         </header>
 
-        <h1>Unser Dialog Test</h1>
-        <button aria-haspopup="dialog" aria-controls="myDialog" onclick="openDialog()">Dialog öffnen</button>
-            <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescrib">
-                <header>
-                    <h2 id="dialogTitle">Dialog Titel</h2>
-                </header>
-                <section>
-                    <p id="dialogDescrib">Dies ist ein Beispiel für einen ARIA Dialog.</p>
-                </section>
-                <footer>
-                <button aria-label="Dialog schließen" onclick="closeDialog()">Dialog schließen</button>
-                </footer>
-            </dialog>
+     <main>
+        <div class="main_content_wrapper">
+        <h1>Your personal photo album</h1>
+        <section class="photo_content"></section>
+        </div>
     </main>
 
     <footer>
-            <img src="./img/footer_background.png" alt="Fotogram Footer Logo" id="footer_logo">
+            <div class="content_wrapper">
+                <div id="footer_content">
+            <img src="./img/footer_logo.svg" alt="Fotogram Footer Logo" id="footer_logo">
+            <p id="footer_font">&copy; 2023 Developer Akademie GmbH</p>
+                </div>
+            </div>
     </footer>
     
 </body>

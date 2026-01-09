@@ -8,30 +8,70 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: Figtree, sans-serif;
-  background-color: #004646;
+  background-color: #06171E;
+  color: #FFFFFF;
 }
 
 main {
   flex: 1;
 }
 
+h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
 header {
     height: 80px;
-    background-color: #015454;
+    background-color: #09212A;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#header_logo {
+    height: 40px;
+    padding-left: 20px;
+}
+
+.content_wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+}
+.main_content_wrapper {
+    max-width: 1440px;
+    width: 100%;
+    padding: 120px 160px 120px 160px;
+    margin: auto;
+}
+
+.photo_content {
+    padding-top: 120px;
+    background-color: #627B84;
 }
 
 footer {
-    height: 128px;
-}
-
-#header_logo {
-}
-
-#footer_logo {
+    display: flex;
     width: 100%;
     height: 128px;
-    object-fit: cover;
-    filter: brightness(0) saturate(100%) invert(24%) sepia(18%) saturate(2389%) hue-rotate(134deg) brightness(99%) contrast(99%);
+    background-image: url(./img/footer_background.png);
+    background-size: cover;
+}
+#footer_logo {
+    height: 32px;
+}
+#footer_content {
+    display: flex;
+    flex-direction: column;
+}
+#footer_font {
+    text-align: center;
+    color: #627B84;
+    font-size: 13px;
+    margin-block-start: 16px;
+    margin-block-end: 0;
 }
 
 dialog {

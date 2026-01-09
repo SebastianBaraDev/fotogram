@@ -1,3 +1,6 @@
+ const photoContent = photos []
+ document.getElementsByClassName('photo_content');
+ 
  const dialogRef = document.getElementById("myDialog");
 
         function openDialog() {
