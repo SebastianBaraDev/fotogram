@@ -10,7 +10,9 @@
      <script src="./function.js"></script>
      <link rel="icon" type="image/png" href="./img/favicon.png">
 </head>
-<body>
+
+<body onload="render()">
+
     <header>
             <div class="content_wrapper">
             <img src="./img/header_logo.svg" alt="Fotogram Logo" id="header_logo">
@@ -20,8 +22,15 @@
      <main>
         <div class="main_content_wrapper">
         <h1>Your personal photo album</h1>
-        <section class="photo_content"></section>
+        <section id="photo_content"></section>
         </div>
+
+        <dialog>
+            <header>
+                <h2 id="dialog_title"></h2>
+                <div><img href="./img/" </div>
+            </header>
+        </dialog>
     </main>
 
     <footer>
