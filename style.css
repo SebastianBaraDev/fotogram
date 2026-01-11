@@ -72,6 +72,34 @@ header {
         }
 
 
+#img_dialog {
+    background-color: #09212A;
+    border-radius: 40px;
+    border-color: #09212A;
+    padding: 56px 64px;
+}
+#dialog_title {
+    font-size: 24px;
+    font-weight: 700 bold;
+}
+#dialog_header {
+    display: flex;
+    justify-content: space-between;
+}
+.big_picture {
+    width: 560px;
+    height: 360px;
+}
+#dialog_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 260px;
+    margin: auto;
+}
+#dialog_nav img:hover {
+    filter:  brightness(1.5);
+}
+
 footer {
     display: flex;
     width: 100%;
@@ -94,4 +122,3 @@ footer {
     margin-block-end: 0;
 }
 
-dialog {}

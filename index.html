@@ -11,7 +11,7 @@
      <link rel="icon" type="image/png" href="./img/favicon.png">
 </head>
 
-<body onload="render()">
+<body onload="pushImageWidgets()">
 
     <header>
             <div class="content_wrapper">
@@ -25,12 +25,21 @@
         <section id="photo_content"></section>
         </div>
 
-        <dialog>
-            <header>
+        <dialog id="img_dialog">
+            <header id="dialog_header">
                 <h2 id="dialog_title"></h2>
-                <div><img href="./img/" </div>
+                <img src="./img/close_icon.png" onclick="closeDialog()">
             </header>
+            <main>
+                <div id="big_picture"></div>
+            </main>
+            <footer id="dialog_nav">
+                <img src="./img/left_arrow.svg" onclick="navBack()">
+                <p id="show_index"></p>
+                <img src="./img/right_arrow.svg" onclick="navForward()">
+            </footer>
         </dialog>
+        <button onclick="openDialog()">Dialog öffnen</button>
     </main>
 
     <footer>

@@ -12,8 +12,9 @@
                 'img/seeanemone.jpg',
                 'img/toucan.jpg'
               ]
+ let currentIndex = 0;
 
-function render() {
+function pushImageWidgets() {
 
      const photoContainer = document.getElementById("photo_content");
 
@@ -23,15 +24,36 @@ function render() {
         }
 }
 
+
+function pushDialogImage(index) {
+    currentIndex = index;
+     const imageContainer = document.getElementById("big_picture");
+     imageContainer.innerHTML = `<img class="bigPicture" src="${images[currentIndex]}">`;
+}
+
+
  
- const dialogRef = document.getElementById("myDialog");
+function openDialog(index) {
+    currentIndex = index;
+    const dialogRef = document.getElementById("img_dialog");  
+    dialogRef.showModal();
+    pushDialogImage();
+}
 
-        function openDialog() {
-            dialogRef.showModal();
-            dialogRef.classList.add("opened");
-        }
+function closeDialog() {
+    const dialogRef = document.getElementById("img_dialog");
+    dialogRef.close();
+}
 
-        function closeDialog() {
-            dialogRef.close();
-            dialogRef.classList.remove("opened");
-        }
+function navBack() {
+
+}
+
+function navForward() {
+
+}
+
+function showIndex() {
+    let showIndex = document.getElementById("show_index");
+    showIndex = images[currentIndex] + "/" + images.length;
+}
