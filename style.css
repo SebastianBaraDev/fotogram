@@ -23,6 +23,7 @@ h1 {
 h2 {
     font-size: 24px;
     font-weight: 700 bold;
+    color: #FFFFFF;
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -53,9 +54,8 @@ header {
 }
 
 
-.photo_content {
+#photo_content {
     padding: 0 160px;
-    background-color: #627B84;
 }
 .galleryImage {
     height: 150px;
@@ -75,9 +75,25 @@ header {
 #img_dialog {
     background-color: #09212A;
     border-radius: 40px;
-    border-color: #09212A;
+    border: 2px solid #09212A;
     padding: 56px 64px;
+    transition: all 0.5s ease-in;
+    transform: translateY(50px);
 }
+#img_dialog.opened {
+    transition: all 0.5s ease-in;
+    transform: translateY(0);
+}
+#img_dialog::backdrop {
+    opacity: 0;
+    transition: all 1s ease-in;
+    background-color: black;
+}
+#img_dialog.opened::backdrop {
+    opacity: 0.5;
+    transition: all 1s ease-in;
+}
+
 #dialog_title {
     font-size: 24px;
     font-weight: 700 bold;
@@ -86,10 +102,7 @@ header {
     display: flex;
     justify-content: space-between;
 }
-.big_picture {
-    width: 560px;
-    height: 360px;
-}
+
 #dialog_nav {
     display: flex;
     justify-content: space-between;
@@ -99,6 +112,13 @@ header {
 #dialog_nav img:hover {
     filter:  brightness(1.5);
 }
+#show_index {
+    align-content: center;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+}
+
 
 footer {
     display: flex;

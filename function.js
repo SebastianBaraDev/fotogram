@@ -1,18 +1,17 @@
  let images = [
-                'img/camäleon.jpg',
-                'img/clownfisch.jpg',
-                'img/fisch.jpg',
-                'img/flamingo.jpg',
-                'img/giftfrosch.jpg',
-                'img/kugelfisch.jpg',
-                'img/octopus.jpg',
-                'img/papagei.jpg',
-                'img/pfau.jpg',
-                'img/qualle.jpg',
-                'img/seeanemone.jpg',
-                'img/toucan.jpg'
+                'camäleon.jpg',
+                'clownfisch.jpg',
+                'fisch.jpg',
+                'flamingo.jpg',
+                'giftfrosch.jpg',
+                'kugelfisch.jpg',
+                'octopus.jpg',
+                'papagei.jpg',
+                'pfau.jpg',
+                'qualle.jpg',
+                'seeanemone.jpg',
+                'toucan.jpg'
               ]
- let currentIndex = 0;
 
 function pushImageWidgets() {
 
@@ -20,40 +19,53 @@ function pushImageWidgets() {
 
             for (let i = 0; i < images.length; i++) {
             const image = images[i];
-            photoContainer.innerHTML += `<img class="galleryImage" src="${image}">`;
+            photoContainer.innerHTML += `<img onclick="openDialog(${i})" class="galleryImage" src="img/${image}">`;
         }
 }
 
+function pushDialogHeadline(index) {
+    const headlineContainer = document.getElementById("dialog_title");
 
-function pushDialogImage(index) {
-    currentIndex = index;
-     const imageContainer = document.getElementById("big_picture");
-     imageContainer.innerHTML = `<img class="bigPicture" src="${images[currentIndex]}">`;
+    const imageName = images[index];
+    headlineContainer.innerHTML = `${imageName.toUpperCase()}`
 }
 
+function pushDialogImage(index) {
+     const imageContainer = document.getElementById("big_picture");
 
- 
+     const image = images[index];
+     imageContainer.innerHTML = `<img src="img/${image}">`;
+}
+
 function openDialog(index) {
-    currentIndex = index;
     const dialogRef = document.getElementById("img_dialog");  
     dialogRef.showModal();
-    pushDialogImage();
+    dialogRef.classList.add("opened");
+    pushDialogImage(index);
+    pushDialogHeadline(index);
+    showIndex(index);
 }
 
 function closeDialog() {
     const dialogRef = document.getElementById("img_dialog");
     dialogRef.close();
+    dialogRef.classList.remove("opened");
 }
 
-function navBack() {
-
+function navBack(index) {
+    const i = images[index];
+   for (let index = images.length; i > 0; index--) {
+    if (i > 0) {
+     i -= 1;
+    }
+   }
 }
 
 function navForward() {
 
 }
 
-function showIndex() {
+function showIndex(index) {
     let showIndex = document.getElementById("show_index");
-    showIndex = images[currentIndex] + "/" + images.length;
+    showIndex.innerHTML = `${[index + 1]}/${images.length}`;
 }

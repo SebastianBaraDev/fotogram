@@ -25,21 +25,24 @@
         <section id="photo_content"></section>
         </div>
 
-        <dialog id="img_dialog">
+        <dialog id="img_dialog" aria-labelledby="dialog_title" aria-describedby="big_picture">
+
             <header id="dialog_header">
                 <h2 id="dialog_title"></h2>
                 <img src="./img/close_icon.png" onclick="closeDialog()">
             </header>
-            <main>
+
+            <section>
                 <div id="big_picture"></div>
-            </main>
+            </section>
+
             <footer id="dialog_nav">
-                <img src="./img/left_arrow.svg" onclick="navBack()">
+                <img src="./img/left_arrow.svg" onclick="navBack()" aria-label="Zurück Navigation">
                 <p id="show_index"></p>
-                <img src="./img/right_arrow.svg" onclick="navForward()">
+                <img src="./img/right_arrow.svg" onclick="navForward()" aria-label="Vorwärts Navigation">
             </footer>
         </dialog>
-        <button onclick="openDialog()">Dialog öffnen</button>
+
     </main>
 
     <footer>
