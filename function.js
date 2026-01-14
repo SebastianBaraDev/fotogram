@@ -1,6 +1,6 @@
  let images = [
                 'camäleon.jpg',
-                'clownfisch.jpg',
+                'clownfisch.png',
                 'fisch.jpg',
                 'flamingo.jpg',
                 'giftfrosch.jpg',
@@ -13,6 +13,8 @@
                 'toucan.jpg'
               ]
 
+let currentIndex = 0;
+
 function pushImageWidgets() {
 
      const photoContainer = document.getElementById("photo_content");
@@ -23,27 +25,14 @@ function pushImageWidgets() {
         }
 }
 
-function pushDialogHeadline(index) {
-    const headlineContainer = document.getElementById("dialog_title");
-
-    const imageName = images[index];
-    headlineContainer.innerHTML = `${imageName.toUpperCase()}`
-}
-
-function pushDialogImage(index) {
-     const imageContainer = document.getElementById("big_picture");
-
-     const image = images[index];
-     imageContainer.innerHTML = `<img src="img/${image}">`;
-}
-
 function openDialog(index) {
+    currentIndex = index;
+
     const dialogRef = document.getElementById("img_dialog");  
     dialogRef.showModal();
     dialogRef.classList.add("opened");
-    pushDialogImage(index);
-    pushDialogHeadline(index);
-    showIndex(index);
+
+    updateDialog();
 }
 
 function closeDialog() {
@@ -52,20 +41,43 @@ function closeDialog() {
     dialogRef.classList.remove("opened");
 }
 
-function navBack(index) {
-    const i = images[index];
-   for (let index = images.length; i > 0; index--) {
-    if (i > 0) {
-     i -= 1;
-    }
-   }
+function updateDialog() {
+    pushDialogHeadline(currentIndex);
+    pushDialogImage(currentIndex);
+    showIndex(currentIndex);
 }
 
-function navForward() {
+function pushDialogHeadline(index) {
+    const headlineContainer = document.getElementById("dialog_title");
+    headlineContainer.innerHTML = images[index].toUpperCase();
+}
 
+function pushDialogImage(index) {
+     const imageContainer = document.getElementById("big_picture");
+     imageContainer.innerHTML = `<img src="img/${images[index]}">`;
 }
 
 function showIndex(index) {
     let showIndex = document.getElementById("show_index");
     showIndex.innerHTML = `${[index + 1]}/${images.length}`;
+}
+
+function navBack() {
+    currentIndex--;
+
+    if(currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    updateDialog();
+}
+
+function navForward() {
+    currentIndex++;
+
+    if(currentIndex >=images.length) {
+        currentIndex = 0;
+    }
+
+    updateDialog();
 }
