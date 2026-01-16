@@ -8,48 +8,49 @@
      <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="./font.css">
      <script src="./function.js"></script>
-     <link rel="icon" type="image/png" href="./img/favicon.png">
+     <link rel="icon" href="./img/favicon.png">
+   
 </head>
 
 <body onload="pushImageWidgets()">
 
     <header>
-            <div class="content_wrapper">
-            <img src="./img/header_logo.svg" alt="Fotogram Logo" id="header_logo">
+            <div class="ContentWrapper">
+            <img src="./img/header_logo.svg" alt="Fotogram Logo" class="HeaderLogo">
         </div class="content_wrapper">
         </header>
 
      <main>
-        <div class="main_content_wrapper">
+        <div class="MainContentWrapper">
         <h1>Your personal photo album</h1>
         <section id="photo_content"></section>
         </div>
 
         <dialog id="img_dialog" aria-labelledby="dialog_title" aria-describedby="big_picture">
 
-            <header id="dialog_header">
+            <header class="DialogHeader">
                 <h2 id="dialog_title"></h2>
-                <img src="./img/close_icon.png" onclick="closeDialog()">
+                <img src="./img/close_icon.png" class="DialogExit" onclick="closeDialog()" tabindex="0" onkeydown="tabindexCloseDialog(event)">
             </header>
 
             <section>
                 <div id="big_picture"></div>
             </section>
 
-            <footer id="dialog_nav">
-                <img src="./img/left_arrow.svg" onclick="navBack()" aria-label="Zurück Navigation">
+            <footer class="DialogNav">
+                <img src="./img/left_arrow.svg" onclick="navBack()" tabindex="0" onkeydown="tabindexNavLeft(event)" aria-label="Zurück Navigation">
                 <p id="show_index"></p>
-                <img src="./img/right_arrow.svg" onclick="navForward()" aria-label="Vorwärts Navigation">
+                <img src="./img/right_arrow.svg" onclick="navForward()" tabindex="0" onkeydown="tabindexNavRight(event)" aria-label="Vorwärts Navigation">
             </footer>
         </dialog>
 
     </main>
 
     <footer>
-            <div class="content_wrapper">
-                <div id="footer_content">
-            <img src="./img/footer_logo.svg" alt="Fotogram Footer Logo" id="footer_logo">
-            <p id="footer_font">&copy; 2023 Developer Akademie GmbH</p>
+            <div class="ContentWrapper">
+                <div class="FooterContent">
+            <img src="./img/footer_logo.svg" alt="Fotogram Footer Logo" class="FooterLogo">
+            <p class="FooterFont">&copy; 2023 Developer Akademie GmbH</p>
                 </div>
             </div>
     </footer>

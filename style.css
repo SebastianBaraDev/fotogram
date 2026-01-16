@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -9,9 +10,11 @@ body {
   background-color: #06171E;
   color: #FFFFFF;
 }
+
 main {
   flex: 1;
 }
+
 h1 {
     font-size: 56px;
     font-weight: 800;
@@ -20,6 +23,7 @@ h1 {
     padding-bottom: 100px;
     text-align: center;
 }
+
 h2 {
     font-size: 24px;
     font-weight: 700 bold;
@@ -28,7 +32,6 @@ h2 {
     margin-block-end: 0;
 }
 
-
 header {
     min-height: 80px;
     background-color: #09212A;
@@ -36,28 +39,29 @@ header {
     align-items: center;
     width: 100%;
 }
-#header_logo {
+
+.HeaderLogo {
     height: 40px;
     padding-left: 20px;
 }
 
-
-.content_wrapper {
+.ContentWrapper {
     max-width: 1440px;
     width: 100%;
     margin: auto;
 }
-.main_content_wrapper {
+
+.MainContentWrapper {
     max-width: 1440px;
     margin: auto;
     padding: 120px 0;
 }
 
-
 #photo_content {
     padding: 0 160px;
 }
-.galleryImage {
+
+.GalleryImage {
     height: 150px;
     width: 150px;
     border-radius: 16px;
@@ -66,11 +70,11 @@ header {
     transition: all 125ms ease-in-out;
     object-fit: cover;
 }
-.galleryImage:hover {
+
+.GalleryImage:hover {
             filter:  brightness(1.5);
             transform: scale(1.2);
         }
-
 
 #img_dialog {
     background-color: #09212A;
@@ -80,15 +84,18 @@ header {
     transition: all 0.5s ease-in;
     transform: translateY(50px);
 }
+
 #img_dialog.opened {
     transition: all 0.5s ease-in;
     transform: translateY(0);
 }
+
 #img_dialog::backdrop {
     opacity: 0;
     transition: all 1s ease-in;
     background-color: black;
 }
+
 #img_dialog.opened::backdrop {
     opacity: 0.5;
     transition: all 1s ease-in;
@@ -98,20 +105,27 @@ header {
     font-size: 24px;
     font-weight: 700 bold;
 }
-#dialog_header {
+
+.DialogExit:hover {
+    background-image: url(./img/exit_hover.png);
+}
+
+.DialogHeader {
     display: flex;
     justify-content: space-between;
 }
 
-#dialog_nav {
+.DialogNav {
     display: flex;
     justify-content: space-between;
     width: 260px;
     margin: auto;
 }
-#dialog_nav img:hover {
-    filter:  brightness(1.5);
+
+.DialogNav img:hover {
+    filter:  brightness(1.6);
 }
+
 #show_index {
     align-content: center;
     color: #FFFFFF;
@@ -119,22 +133,25 @@ header {
     font-size: 16px;
 }
 
-
 footer {
     display: flex;
     width: 100%;
     min-height: 128px;
     background-image: url(./img/footer_background.png);
     background-size: cover;
+    background-position: center bottom;
 }
-#footer_logo {
+
+.FooterLogo {
     height: 32px;
 }
-#footer_content {
+
+.FooterContent {
     display: flex;
     flex-direction: column;
 }
-#footer_font {
+
+.FooterFont {
     text-align: center;
     color: #627B84;
     font-size: 13px;
@@ -142,3 +159,11 @@ footer {
     margin-block-end: 0;
 }
 
+@media (max-width: 1020px) {
+    h1 {
+        font-size: 48px;
+    }
+    #photo_content {
+    padding: 0 24px;
+}
+}

@@ -15,46 +15,73 @@
 
 let currentIndex = 0;
 
+// Die Bilder aus dem Array in die Gallerie pushen
 function pushImageWidgets() {
 
-     const photoContainer = document.getElementById("photo_content");
+    const PHOTO_CONTAINER = document.getElementById("photo_content");
 
-            for (let i = 0; i < images.length; i++) {
-            const image = images[i];
-            photoContainer.innerHTML += `<img onclick="openDialog(${i})" class="galleryImage" src="img/${image}">`;
+        for (let i = 0; i < images.length; i++) {
+        const IMAGE = images[i];
+        PHOTO_CONTAINER.innerHTML += `<img onclick="openDialog(${i})" tabindex="0" onkeydown="tabToOpenImageWidgets(event,${i})" class="GalleryImage" src="img/${IMAGE}">`;
         }
 }
 
+// Tabindex Funktionalität in der Gallerie
+function tabToOpenImageWidgets(event,index) {
+    if (event.key === "Enter") {
+        openDialog(index);
+}
+}
+
+// Tabindex Funktionalität im Dialog
+function tabindexCloseDialog(event) {
+    if (event.key === "Enter")
+        closeDialog();
+}
+
+function tabindexNavLeft(event) {
+    if (event.key === "Enter")
+        navBack();
+}
+
+function tabindexNavRight(event) {
+    if (event.key === "Enter")
+        navForward();
+}
+
+// Öffnen des Dialog aus der Gallerie heraus und schließen aus dem Dialog
 function openDialog(index) {
     currentIndex = index;
 
-    const dialogRef = document.getElementById("img_dialog");  
-    dialogRef.showModal();
-    dialogRef.classList.add("opened");
+    const DIALOG_REF = document.getElementById("img_dialog");  
+    DIALOG_REF.showModal();
+    DIALOG_REF.classList.add("opened");
 
     updateDialog();
 }
 
 function closeDialog() {
-    const dialogRef = document.getElementById("img_dialog");
-    dialogRef.close();
-    dialogRef.classList.remove("opened");
+    const DIALOG_REF = document.getElementById("img_dialog");
+    DIALOG_REF.close();
+    DIALOG_REF.classList.remove("opened");
 }
 
+// Aktualisiert den globalen Index für die Navigation
 function updateDialog() {
     pushDialogHeadline(currentIndex);
     pushDialogImage(currentIndex);
     showIndex(currentIndex);
 }
 
+// Fügt die Inhalte des Dialogs ein
 function pushDialogHeadline(index) {
-    const headlineContainer = document.getElementById("dialog_title");
-    headlineContainer.innerHTML = images[index].toUpperCase();
+    const HEADLINE_CONTAINER = document.getElementById("dialog_title");
+    HEADLINE_CONTAINER.innerHTML = images[index].toUpperCase();
 }
 
 function pushDialogImage(index) {
-     const imageContainer = document.getElementById("big_picture");
-     imageContainer.innerHTML = `<img src="img/${images[index]}">`;
+     const IMAGE_CONTAINER = document.getElementById("big_picture");
+     IMAGE_CONTAINER.innerHTML = `<img src="img/${images[index]}">`;
 }
 
 function showIndex(index) {
@@ -62,6 +89,7 @@ function showIndex(index) {
     showIndex.innerHTML = `${[index + 1]}/${images.length}`;
 }
 
+// Navigation durch den Dialog
 function navBack() {
     currentIndex--;
 
