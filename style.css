@@ -80,9 +80,12 @@ header {
     background-color: #09212A;
     border-radius: 40px;
     border: 2px solid #09212A;
-    padding: 56px 64px;
     transition: all 0.5s ease-in;
     transform: translateY(50px);
+}
+
+#dialog_background {
+    padding: 56px 64px;
 }
 
 #img_dialog.opened {
@@ -108,6 +111,7 @@ header {
 
 .DialogExit:hover {
     background-image: url(./img/exit_hover.png);
+    cursor: pointer;
 }
 
 .DialogHeader {
@@ -124,6 +128,7 @@ header {
 
 .DialogNav img:hover {
     filter:  brightness(1.6);
+    cursor: pointer;
 }
 
 #show_index {
@@ -131,6 +136,10 @@ header {
     color: #FFFFFF;
     font-weight: 500;
     font-size: 16px;
+}
+
+#big_picture img {
+    max-height: 400px;
 }
 
 footer {
@@ -153,7 +162,7 @@ footer {
 
 .FooterFont {
     text-align: center;
-    color: #627B84;
+    color: #FFFFFF;
     font-size: 13px;
     margin-block-start: 16px;
     margin-block-end: 0;
@@ -166,4 +175,29 @@ footer {
     #photo_content {
     padding: 0 24px;
 }
+}
+
+@media (max-width: 800px) {
+    #dialog_background {
+        padding: 32px 16px;
+    }
+    #big_picture img{
+        width: 320px;
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 400px) {
+    #photo_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #dialog_background {
+        padding: 24px 4px;
+    }
+    #big_picture img{
+        width: 260px;
+        max-height: 160px;
+    }
 }

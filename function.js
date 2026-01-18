@@ -15,25 +15,25 @@
 
 let currentIndex = 0;
 
-// Die Bilder aus dem Array in die Gallerie pushen
+// Push Images from Array to the Gallery
 function pushImageWidgets() {
 
     const PHOTO_CONTAINER = document.getElementById("photo_content");
 
         for (let i = 0; i < images.length; i++) {
         const IMAGE = images[i];
-        PHOTO_CONTAINER.innerHTML += `<img onclick="openDialog(${i})" tabindex="0" onkeydown="tabToOpenImageWidgets(event,${i})" class="GalleryImage" src="img/${IMAGE}">`;
+        PHOTO_CONTAINER.innerHTML += `<img onclick="openDialog(${i})" tabindex="0" onkeydown="tabToOpenImageWidgets(event,${i})" class="GalleryImage" src="img/${IMAGE}" alt="${IMAGE}">`;
         }
 }
 
-// Tabindex Funktionalität in der Gallerie
+// Tabindex Functionality in Gallery
 function tabToOpenImageWidgets(event,index) {
     if (event.key === "Enter") {
         openDialog(index);
 }
 }
 
-// Tabindex Funktionalität im Dialog
+// Tabindex Functionality in Dialog
 function tabindexCloseDialog(event) {
     if (event.key === "Enter")
         closeDialog();
@@ -49,7 +49,7 @@ function tabindexNavRight(event) {
         navForward();
 }
 
-// Öffnen des Dialog aus der Gallerie heraus und schließen aus dem Dialog
+// Open Dialog from Gallery and close Dialog
 function openDialog(index) {
     currentIndex = index;
 
@@ -66,14 +66,14 @@ function closeDialog() {
     DIALOG_REF.classList.remove("opened");
 }
 
-// Aktualisiert den globalen Index für die Navigation
+// Updates global Index for Navigation
 function updateDialog() {
     pushDialogHeadline(currentIndex);
     pushDialogImage(currentIndex);
     showIndex(currentIndex);
 }
 
-// Fügt die Inhalte des Dialogs ein
+// Push Dialog Content
 function pushDialogHeadline(index) {
     const HEADLINE_CONTAINER = document.getElementById("dialog_title");
     HEADLINE_CONTAINER.innerHTML = images[index].toUpperCase();
@@ -89,7 +89,7 @@ function showIndex(index) {
     showIndex.innerHTML = `${[index + 1]}/${images.length}`;
 }
 
-// Navigation durch den Dialog
+// Dialog Navigation
 function navBack() {
     currentIndex--;
 
@@ -109,3 +109,17 @@ function navForward() {
 
     updateDialog();
 }
+
+// Referenzen auf Elemente
+const dialog = document.getElementById('img_dialog');
+const background = document.getElementById('dialog_background');
+
+// Klick auf Hintergrund schließt Dialog
+dialog.onclick = function () {
+    closeDialog();
+};
+
+// Klick im Dialog selbst soll das Schließen verhindern
+background.onclick = function (event) {
+    event.stopPropagation();
+};

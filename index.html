@@ -7,8 +7,7 @@
 
      <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="./font.css">
-     <script src="./function.js"></script>
-     <link rel="icon" href="./img/favicon.png">
+     <link rel="icon" href="./img/favicon.png"/>
    
 </head>
 
@@ -26,11 +25,13 @@
         <section id="photo_content"></section>
         </div>
 
-        <dialog id="img_dialog" aria-labelledby="dialog_title" aria-describedby="big_picture">
 
+        <dialog id="img_dialog" aria-labelledby="dialog_title" aria-describedby="big_picture">
+            <div id="dialog_background">
+                
             <header class="DialogHeader">
                 <h2 id="dialog_title"></h2>
-                <img src="./img/close_icon.png" class="DialogExit" onclick="closeDialog()" tabindex="0" onkeydown="tabindexCloseDialog(event)">
+                <img src="./img/close_icon.png" class="DialogExit" onclick="closeDialog()" tabindex="0" onkeydown="tabindexCloseDialog(event)" aria-label="Dialog schließen">
             </header>
 
             <section>
@@ -42,6 +43,8 @@
                 <p id="show_index"></p>
                 <img src="./img/right_arrow.svg" onclick="navForward()" tabindex="0" onkeydown="tabindexNavRight(event)" aria-label="Vorwärts Navigation">
             </footer>
+
+            </div>
         </dialog>
 
     </main>
@@ -55,5 +58,6 @@
             </div>
     </footer>
     
+    <script src="./function.js"></script>
 </body>
 </html>
