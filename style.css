@@ -11,6 +11,10 @@ body {
   color: #FFFFFF;
 }
 
+.HideScrollbar {
+    overflow: hidden;
+}
+
 main {
   flex: 1;
 }

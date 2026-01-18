@@ -57,6 +57,9 @@ function openDialog(index) {
     DIALOG_REF.showModal();
     DIALOG_REF.classList.add("opened");
 
+    const BODY_OVERFLOW = document.getElementById("hide_scrollbar");
+    BODY_OVERFLOW.classList.add("HideScrollbar");
+
     updateDialog();
 }
 
@@ -64,6 +67,9 @@ function closeDialog() {
     const DIALOG_REF = document.getElementById("img_dialog");
     DIALOG_REF.close();
     DIALOG_REF.classList.remove("opened");
+
+    const BODY_OVERFLOW = document.getElementById("hide_scrollbar");
+    BODY_OVERFLOW.classList.remove("HideScrollbar");
 }
 
 // Updates global Index for Navigation
